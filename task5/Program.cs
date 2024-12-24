@@ -7,8 +7,6 @@
             #region q1. Write a program that prints an identity matrix using for loop, in other words takes a value n from the user and shows the identity table of size n * n.
             //Console.Write("Enter the size of the identity matrix : ");
             //int n;
-
-            //// Validate user input
             //while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
             //{
             //    Console.WriteLine("Please enter a valid positive integer.");
@@ -17,7 +15,6 @@
 
             //Console.WriteLine($"\n Identity Matrix of size {n} x {n}:\n");
 
-            //// Generate and print the identity matrix
             //for (int i = 0; i < n; i++)
             //{
             //    for (int j = 0; j < n; j++)
@@ -66,8 +63,6 @@
             #region q3- Write a program in C# Sharp to merge two arrays of the same size sorted in ascending order.
             //Console.Write("Enter the size of the arrays: ");
             //int n;
-
-            //// Validate user input
             //while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
             //{
             //    Console.WriteLine("Please enter a valid positive integer.");
@@ -98,13 +93,9 @@
             //        Console.Write($"Element [{i + 1}]: ");
             //    }
             //}
-
-            //// Merge the two arrays
             //int[] mergedArray = new int[2 * n];
             //Array.Copy(array1, mergedArray, n);
             //Array.Copy(array2, 0, mergedArray, n, n);
-
-            //// Sort the merged array
             //Array.Sort(mergedArray);
 
             //Console.WriteLine("\nThe merged array sorted in ascending order:");
@@ -113,7 +104,7 @@
             //    Console.Write(num + " ");
             //}
             //Console.WriteLine();
-            #endregion q4  Write a program in C# Sharp to count the frequency of each element of an array.
+            #endregion
             #region q4 Write a program in C# Sharp to count the frequency of each element of an array.
 
             //int[] array = { 1, 2, 2, 3, 4, 4, 4, 5, 1 };
@@ -183,27 +174,86 @@
             //}
             #endregion
             #region q7 Consider an Array of Integer values with size N, having values as in this Example
+            Console.Write("Enter the size of the array (N): ");
+            int n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+            Console.WriteLine("Enter the elements of the array:");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Element [{i}]: ");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
 
+            int longestDistance = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        int distance = j - i;
+                        if (distance > longestDistance)
+                        {
+                            longestDistance = distance;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine($"The longest distance between two equal cells is: {longestDistance}");
             #endregion
-            #region q8
-            #endregion
+
+
             #region q9 Given a list of space separated words, reverse the order of the words.
 
             #endregion
             #region q10  Write a program to create two multidimensional arrays of same size. Accept values from the user and store them in first array. Now copy all the elements of the first array on second array and print second array.
-            
-            
+            int rows, colmns;
+
+            Console.Write("Enter the number of rows:");
+            rows = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the number of columns:");
+            colmns = int.Parse(Console.ReadLine());
+
+            int[,] firstArray = new int[rows, colmns];
+            int[,] secondArray = new int[rows, colmns];
+            Console.WriteLine("Enter elements for the first array:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < colmns; j++)
+                {
+                    Console.Write($"Element [{i}, {j}]: ");
+                    firstArray[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < colmns; j++)
+                {
+                    secondArray[i, j] = firstArray[i, j];
+                }
+            }
+            Console.WriteLine("Second array:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < colmns; j++)
+                {
+                    Console.Write(secondArray[i, j] );
+                }
+                Console.WriteLine();
+            }
+
             #endregion
             #region q11 Write a Program to Print One Dimensional Array in Reverse Order
-            int[] arr = { 1, 2, 3, 4, 5 };
+            //int[] arr = { 1, 2, 3, 4, 5 };
 
-            Console.WriteLine("Array in reverse order:");
+            //Console.WriteLine("Array in reverse order:");
 
-            // Iterate through the array in reverse
-            for (int i = arr.Length - 1; i >= 0; i--)
-            {
-                Console.Write(arr[i] + " ");
-            }
+            //// Iterate through the array in reverse
+            //for (int i = arr.Length - 1; i >= 0; i--)
+            //{
+            //    Console.Write(arr[i] + " ");
+            //}
 
             #endregion
         }
